@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Hesham Mohamed — IT Engineer</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+html, body {
+  background-color: #07070f;
+  color: #f0f0ff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* ORBS */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+.orb1 { width: 400px; height: 400px; background: rgba(167,139,250,0.3); top: -100px; left: -100px; }
+.orb2 { width: 350px; height: 350px; background: rgba(96,165,250,0.2); bottom: -80px; right: -80px; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(15,15,30,0.85);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  padding: 10px 24px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: calc(100% - 32px);
+  max-width: 500px;
+}
+nav .logo { color: #a78bfa; font-size: 0.9rem; font-weight: 700; }
+nav a { color: rgba(240,240,255,0.5); font-size: 0.82rem; text-decoration: none; }
+
+/* SECTIONS */
+section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 20px 60px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* HERO */
+#hero { min-height: 100vh; display: flex; align-items: center; padding-top: 120px; }
+.eyebrow {
+  font-size: 0.75rem;
+  color: #a78bfa;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-family: 'SF Mono', 'Courier New', monospace;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 30%, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.role { font-size: 1rem; color: rgba(240,240,255,0.5); margin-top: 14px; line-height: 1.6; }
+.role span { color: #60a5fa; }
+.btns { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+.btn {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  color: #fff;
+}
+.btn-ghost {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #f0f0ff;
+}
+
+/* SECTION HEADER */
+.sec-label {
+  font-family: 'SF Mono', 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: #a78bfa;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.sec-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+.sec-sub { font-size: 0.9rem; color: rgba(240,240,255,0.45); line-height: 1.6; margin-bottom: 36px; }
+
+/* GLASS CARD */
+.card {
+  background: rgba(20,20,40,0.75);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+.card p { font-size: 0.85rem; color: rgba(240,240,255,0.45); line-height: 1.6; }
+
+/* TAGS */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tag {
+  font-family: 'SF Mono', 'Courier New', monospace;
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(240,240,255,0.45);
+}
+.tag.v { background: rgba(167,139,250,0.12); border-color: rgba(167,139,250,0.3); color: #a78bfa; }
+.tag.b { background: rgba(96,165,250,0.12); border-color: rgba(96,165,250,0.3); color: #60a5fa; }
+.tag.g { background: rgba(52,211,153,0.12); border-color: rgba(52,211,153,0.3); color: #34d399; }
+
+/* EXP */
+.exp-year { font-family: 'SF Mono', 'Courier New', monospace; font-size: 0.75rem; color: rgba(240,240,255,0.35); margin-bottom: 4px; }
+.exp-company { font-size: 0.85rem; color: #60a5fa; margin-top: 2px; }
+
+/* CONTACT */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: #f0f0ff;
+  background: rgba(20,20,40,0.75);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+.contact-link svg { width: 32px; height: 32px; flex-shrink: 0; }
+.contact-link h4 { font-size: 0.9rem; font-weight: 600; }
+.contact-link p { font-size: 0.8rem; color: rgba(240,240,255,0.45); margin-top: 2px; }
+
+/* DIVIDER */
+.divider { height: 1px; background: rgba(255,255,255,0.07); margin: 0 20px; max-width: 660px; margin-left: auto; margin-right: auto; }
+
+/* FOOTER */
+footer { text-align: center; padding: 40px 20px; color: rgba(240,240,255,0.25); font-size: 0.8rem; position: relative; z-index: 2; }
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- NAV -->
+<nav>
+  <span class="logo">H.M</span>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="eyebrow">// IT Engineer</div>
+  <h1>Hesham<br>Mohamed</h1>
+  <p class="role">Building reliable infrastructure &<br><span>modern digital systems</span></p>
+  <div class="btns">
+    <a href="#contact" class="btn btn-primary">Get in touch</a>
+    <a href="#skills" class="btn btn-ghost">View skills</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">// Expertise</div>
+  <h2 class="sec-title">What I work with</h2>
+  <p class="sec-sub">Systems, networks, and the full stack of IT operations.</p>
+
+  <div class="card">
+    <div class="card-icon">🔧</div>
+    <h3>Systems & Infrastructure</h3>
+    <p>Managing servers, virtualization, and enterprise IT environments.</p>
+    <div class="tags">
+      <span class="tag v">Windows Server</span>
+      <span class="tag v">Linux</span>
+      <span class="tag v">VMware</span>
+      <span class="tag">Active Directory</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🌐</div>
+    <h3>Networking</h3>
+    <p>Designing and troubleshooting LAN/WAN, firewalls, and secure configs.</p>
+    <div class="tags">
+      <span class="tag b">Cisco</span>
+      <span class="tag b">TCP/IP</span>
+      <span class="tag b">VPN</span>
+      <span class="tag">Firewall</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">☁️</div>
+    <h3>Cloud & DevOps</h3>
+    <p>Deploying cloud infrastructure with CI/CD pipelines and automation.</p>
+    <div class="tags">
+      <span class="tag g">Azure</span>
+      <span class="tag g">Docker</span>
+      <span class="tag g">Git</span>
+      <span class="tag">PowerShell</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🔒</div>
+    <h3>Security</h3>
+    <p>Implementing security policies and maintaining system integrity.</p>
+    <div class="tags">
+      <span class="tag v">Endpoint Security</span>
+      <span class="tag v">SIEM</span>
+      <span class="tag">Backup & DR</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">💾</div>
+    <h3>Databases</h3>
+    <p>Administering relational and NoSQL databases with optimization strategies.</p>
+    <div class="tags">
+      <span class="tag b">SQL Server</span>
+      <span class="tag b">MySQL</span>
+      <span class="tag">MongoDB</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🖥️</div>
+    <h3>Support & Helpdesk</h3>
+    <p>Delivering tier 1–3 technical support with fast resolution.</p>
+    <div class="tags">
+      <span class="tag g">ITIL</span>
+      <span class="tag g">Ticketing</span>
+      <span class="tag">Hardware</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-label">// Journey</div>
+  <h2 class="sec-title">Experience</h2>
+
+  <div class="card">
+    <div class="exp-year">2023 — Present</div>
+    <h3>IT Engineer</h3>
+    <div class="exp-company">Current Role</div>
+    <p style="margin-top:10px">Managing IT infrastructure, network configurations, and end-user support. Responsible for system uptime and security compliance.</p>
+  </div>
+
+  <div class="card">
+    <div class="exp-year">2021 — 2023</div>
+    <h3>Technical Support Specialist</h3>
+    <div class="exp-company">IT Support</div>
+    <p style="margin-top:10px">Multi-level technical support for hardware, software, and network issues. Built internal knowledge base and reduced ticket resolution time.</p>
+  </div>
+
+  <div class="card">
+    <div class="exp-year">2020 — Present</div>
+    <h3>Business Informatics — Student</h3>
+    <div class="exp-company" style="color:#34d399">Helwan National University</div>
+    <p style="margin-top:10px">Studying Business Informatics & Digital Transformation with a graduation project in AI-powered enterprise solutions.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">// Connect</div>
+  <h2 class="sec-title">Get in touch</h2>
+  <p class="sec-sub">Open to opportunities and collaborations.</p>
+
+  <a href="mailto:hzego@icloud.com" class="contact-link">
+    <svg viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="6" fill="#a78bfa"/>
+      <path d="M4 8l8 5 8-5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="4" y="7" width="16" height="11" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+    </svg>
+    <div><h4>Email</h4><p>hzego@icloud.com</p></div>
+  </a>
+
+  <a href="https://www.instagram.com/hesham__mohamed911?igsh=MWw4cjN1djY0YW0xZw%3D%3D&utm_source=qr" target="_blank" class="contact-link">
+    <svg viewBox="0 0 24 24" fill="none">
+      <defs>
+        <radialGradient id="ig" cx="30%" cy="107%" r="130%">
+          <stop offset="0%" stop-color="#fdf497"/>
+          <stop offset="30%" stop-color="#fd5949"/>
+          <stop offset="60%" stop-color="#d6249f"/>
+          <stop offset="90%" stop-color="#285AEB"/>
+        </radialGradient>
+      </defs>
+      <rect width="24" height="24" rx="6" fill="url(#ig)"/>
+      <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8" fill="none"/>
+      <circle cx="17.2" cy="6.8" r="1.1" fill="white"/>
+    </svg>
+    <div><h4>Instagram</h4><p>@hesham__mohamed911</p></div>
+  </a>
+
+  <a href="https://www.facebook.com/share/1HMQ93w9uw/?mibextid=wwXIfr" target="_blank" class="contact-link">
+    <svg viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="6" fill="#1877F2"/>
+      <path d="M13 21v-7h2.5l.5-3H13V9a1 1 0 0 1 1-1h2V5h-2a4 4 0 0 0-4 4v2H8v3h2v7h3z" fill="white"/>
+    </svg>
+    <div><h4>Facebook</h4><p>Hesham Mohamed</p></div>
+  </a>
+
+  <a href="tel:+201044237770" class="contact-link">
+    <svg viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="6" fill="#34d399"/>
+      <path d="M6.5 4h3l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L15 12l4 1.5v3C19 18 17 20 15 19 9 17 5 11 4 7c-1-2 1-3.5 2.5-3z" stroke="white" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+    </svg>
+    <div><h4>Phone</h4><p>+20 104 423 7770</p></div>
+  </a>
+</section>
+
+<footer>© 2026 Hesham Mohamed · IT Engineer</footer>
+
+</body>
+</html>
